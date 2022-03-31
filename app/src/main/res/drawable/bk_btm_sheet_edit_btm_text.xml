@@ -3,8 +3,8 @@
 
    <solid android:color="@color/btm_sheet_dialog_top_edit_color" />
    <corners
-      android:bottomLeftRadius="24dp"
-      android:bottomRightRadius="24dp" />
+      android:bottomLeftRadius="10dp"
+      android:bottomRightRadius="10dp" />
 
    <padding
       android:left="10dp"
