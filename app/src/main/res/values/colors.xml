@@ -7,10 +7,13 @@
    <color name="teal_700">#FF018786</color>
    <color name="black">#FF000000</color>
    <color name="white">#FFFFFFFF</color>
+   <color name="red">#F44336</color>
 
    <color name="transparent">#00000000</color>
 
+   <color name="bk_whereto_edit_text_collapsed_color">#387BF6</color>
    <color name="btm_sheet_dialog_top_edit_color">#F8F8F8</color>
+   <color name="bkg_btm_sheet_dialog_collapsed_edit_text">#F9F9F9</color>
    <color name="btm_sheet_dialog_btm_edit_color">#F2F2F2</color>
    <color name="btm_sheet_dialog_middle_line">#E9E7E7</color>
 </resources>
