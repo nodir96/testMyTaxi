@@ -3,7 +3,6 @@ package uz.cap.testmytaxi
 import android.location.Address
 import android.location.Geocoder
 import android.os.Bundle
-import android.os.Handler
 import android.util.Log
 import android.view.View
 import android.widget.LinearLayout
@@ -59,11 +58,12 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnCamera
             BottomSheetBehavior.BottomSheetCallback() {
             override fun onStateChanged(bottomSheet: View, newState: Int) {
 
-                if (newState == BottomSheetBehavior.STATE_EXPANDED) {
-                    binding.orderDetail.btmSheetCollapsed.visibility = View.GONE
-                    binding.orderDetail.btmSheetExpend.visibility = View.VISIBLE
-
-                } else if (newState == BottomSheetBehavior.STATE_COLLAPSED) {
+//                if (newState == BottomSheetBehavior.STATE_EXPANDED) {
+//                    binding.orderDetail.btmSheetCollapsed.visibility = View.GONE
+//                    binding.orderDetail.btmSheetExpend.visibility = View.VISIBLE
+//
+//                }
+                if (newState == BottomSheetBehavior.STATE_COLLAPSED) {
                     binding.orderDetail.btmSheetCollapsed.visibility = View.VISIBLE
                     binding.orderDetail.btmSheetExpend.visibility = View.GONE
                 }
@@ -74,6 +74,12 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnCamera
             }
         })
 
+        binding.orderDetail.whereToClickView.setOnClickListener {
+            bottomSheetBehavior!!.state = BottomSheetBehavior.STATE_EXPANDED
+            binding.orderDetail.btmSheetCollapsed.visibility = View.GONE
+            binding.orderDetail.btmSheetExpend.visibility = View.VISIBLE
+        }
+
     }
 
     private fun setDefaultLongLat() {
@@ -82,6 +88,13 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnCamera
 
     }
 
+    override fun onBackPressed() {
+        if (bottomSheetBehavior!!.state == BottomSheetBehavior.STATE_EXPANDED) {
+            bottomSheetBehavior!!.state = BottomSheetBehavior.STATE_COLLAPSED
+            return
+        }
+        super.onBackPressed()
+    }
 
     override fun onMapReady(googleMap: GoogleMap) {
 
